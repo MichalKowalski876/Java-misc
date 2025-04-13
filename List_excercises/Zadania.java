@@ -18,12 +18,20 @@ public class Zadania {
                 shopTable[i] = "Podkładka";
             }
         }
-
         shopTable[size - 1] = "LIMITED_EDITION";
+
+        System.out.print("[ ");
+        for (int i = 0; i < shopTable.length; i++) {
+            System.out.print(shopTable[i]);
+            if (i < shopTable.length - 1)
+                System.out.print(", ");
+        }
+        System.out.println(" ]");
+
         return shopTable;
     }
 
-    public static int[] passWordAnalyzation(String passWord) {
+    public static String passWordAnalyzation(String passWord) {
         int result[] = new int[5];
 
         int num_count = 0;
@@ -48,6 +56,8 @@ public class Zadania {
         result[2] = lower_case_count;
         result[3] = upper_case_count;
         result[4] = special_char;
-        return result;
+
+        String result_str = "{" + result[0] + ", " + result[1] + ", " + result[2] + ", " + result[3] + ", " + result[4] + "}";
+        return result_str;
     }
 }
