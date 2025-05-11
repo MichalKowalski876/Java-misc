@@ -1,5 +1,4 @@
 package func_excercise;
-
 import List_excercises.Zadania;
 
 public class Main {

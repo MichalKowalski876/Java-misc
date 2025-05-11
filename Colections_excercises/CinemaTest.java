@@ -1,46 +1,44 @@
 package Colections_excercises;
+
 import org.junit.jupiter.api.Test;
-import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class CinemaTest {
 
     @Test
-    public void testFiltrujeKrotszeNiz4Znaki() {
-        List<String> input = Arrays.asList("Ola", "Jan", "Anna", "Ewa", "Kuba");
-        List<String> result = Zadania.przefiltrujImiona(input);
-
-        assertFalse(result.contains("JAN"));
-        assertFalse(result.contains("EWA"));
-        assertTrue(result.contains("ANNA"));
-        assertTrue(result.contains("KUBA"));
+    public void testSilneHaslo() {
+        String haslo = "A1!bcde";
+        assertTrue(Zadania.passWordAnalyzation(haslo));
     }
 
     @Test
-    public void testZamieniaNaWielkieLitery() {
-        List<String> input = Arrays.asList("Kasia", "Marek");
-        List<String> result = Zadania.przefiltrujImiona(input);
-
-        assertTrue(result.contains("KASIA"));
-        assertTrue(result.contains("MAREK"));
-        assertFalse(result.contains("kasia"));
+    public void testZaMaloUnikalnychZnakow() {
+        String haslo = "A1!A1!";
+        assertFalse(Zadania.passWordAnalyzation(haslo)); // tylko 3 unikalne znaki
     }
 
     @Test
-    public void testSortowanie() {
-        List<String> input = Arrays.asList("Marek", "Zosia", "Ania");
-        List<String> result = Zadania.przefiltrujImiona(input);
-
-        List<String> expected = Arrays.asList("ANIA", "MAREK", "ZOSIA");
-        assertEquals(expected, result);
+    public void testBrakWielkiejLitery() {
+        String haslo = "abc123!";
+        assertFalse(Zadania.passWordAnalyzation(haslo));
     }
 
     @Test
-    public void testPustaLista() {
-        List<String> input = new ArrayList<>();
-        List<String> result = Zadania.przefiltrujImiona(input);
+    public void testBrakCyfry() {
+        String haslo = "Abcdef!";
+        assertFalse(Zadania.passWordAnalyzation(haslo));
+    }
 
-        assertNotNull(result);
-        assertTrue(result.isEmpty());
+    @Test
+    public void testBrakZnakuSpecjalnego() {
+        String haslo = "Abc1234";
+        assertFalse(Zadania.passWordAnalyzation(haslo));
+    }
+
+    @Test
+    public void testIdealneHasloZDlugoscia() {
+        String haslo = "X9!aBb2";
+        assertTrue(Zadania.passWordAnalyzation(haslo));
     }
 }
