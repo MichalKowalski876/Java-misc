@@ -24,26 +24,21 @@ public class Zadania {
         boolean CzyDuzaLitera = false;
         boolean znakSpecjalny = false;
 
-        // Iterate through each character in the password
         for (int i = 0; i < passWord.length(); i++) {
             char c = passWord.charAt(i);
 
-            // Check if it's a digit
             if (Character.isDigit(c)) {
                 czyLiczba = true;
             }
 
-            // Check if it's an uppercase letter
             if (Character.isUpperCase(c)) {
                 CzyDuzaLitera = true;
             }
 
-            // Check if it's a special character (not a letter or a digit)
             if (!Character.isLetterOrDigit(c)) {
                 znakSpecjalny = true;
             }
 
-            // Check if the character is already in the rozneZnaki list
             if (!rozneZnaki.contains(c)) {
                 rozneZnaki.add(c);
             }
