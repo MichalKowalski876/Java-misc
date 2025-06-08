@@ -27,16 +27,6 @@ public class Zadania {
 
     public static Set<Integer> wygenerujUnikalneLiczby(int num, int min, int max) {
         Random randint = new Random();
-//        Scanner myObj = new Scanner(System.in);
-//
-//        System.out.println("Max: ");
-//        int max = myObj.nextInt();
-//
-//        System.out.println("Min: ");
-//        int min = myObj.nextInt();
-//
-//        System.out.println("Ile: ");
-//        int num = myObj.nextInt();
 
         Set<Integer> result = new HashSet<>();
 
@@ -48,5 +38,23 @@ public class Zadania {
             result.add(new_num);
         }
         return result;
+    }
+
+    public static Map<Integer, Integer> histogramSlow(String tekst) {
+        Map<Integer, Integer> histogram = new HashMap<>();
+
+        String[] slowa = tekst.split(" ");
+
+        for (String slowo : slowa) {
+            int dlugosc = slowo.length();
+
+            if (histogram.get(dlugosc) != null) {
+                histogram.put(dlugosc, histogram.get(dlugosc) + 1);
+            } else {
+                histogram.put(dlugosc, 1);
+            }
+        }
+
+        return histogram;
     }
 }
