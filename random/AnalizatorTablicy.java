@@ -1,7 +1,5 @@
 package random;
 
-import java.util.Collections;
-
 public class AnalizatorTablicy {
     public static int znajdzMax(int[] tablica) {
         int result = tablica[0];
